@@ -1,0 +1,16 @@
+body {
+    /*background-image: url('sp://resources/img/header.png');*/
+    background-size: cover;
+}
+.center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+}
+h1 {
+    border-bottom: none;
+}
+.info {
+    background-color: rgba(255, 255, 255, .2);
+}

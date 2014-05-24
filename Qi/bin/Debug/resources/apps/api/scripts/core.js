@@ -1,0 +1,33 @@
+var __application = null;
+var __ui = null;
+require(['$api/models#Application'], function (Application) {
+    var linkStyle = document.createElement('link'); linkStyle.setAttribute('href', '$views/css/adam.css'); linkStyle.setAttribute('rel', 'stylesheet'); linkStyle.setAttribute('type', 'text/css'); document.head.appendChild(linkStyle);
+    console.log(__application);
+    __application = new Application([], null, null, null, null); 
+    window.addEventListener('message', function (event) {
+        var data = event.data;
+        console.log("Event", event);
+        if (data.type == 'argumentschanged') {
+            if ('arguments' in data) {
+                console.log(__application);
+                __application.dispatchEvent('argumentschanged', data.arguments);
+                console.log(__ui);
+                var id = data.arguments.length > 0 ? data.arguments[data.arguments.length - 1] : null;
+                __ui.tabBar.onargumentschanged(data.arguments);
+                if (__ui != null) {
+                      var views = __ui.views;
+                        for (var i = 0; i < __ui.options.views.length; i++) {
+                            var view = __ui.options.views[i];
+                            if (view.id == id) {
+                                console.log("Element", view.element);
+                                view.element.style.display = 'block';
+                            } else {
+                                view.element.style.display = 'none';
+                            }
+                        }
+                }
+            }
+        }
+    }, '*');
+   
+});

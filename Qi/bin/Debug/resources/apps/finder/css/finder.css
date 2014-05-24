@@ -1,0 +1,19 @@
+body {
+	background-color: #222;
+	color: white;
+}
+body a {
+	color: white;
+}
+.box {
+	border-radius: 4px;
+}
+h2 {
+	font-size: 10pt;
+	border-bottom: 1px solid #888;
+}
+.entry {
+}
+.content {
+	padding: 20px;
+}

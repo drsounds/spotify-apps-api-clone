@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<style>
+  <primary selector="*" color="#75c92b" />
+  <fgcolor selector="*" color="#fafffa" />
+  <bgcolor selector="*" color="#333333" />
+</style>

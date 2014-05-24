@@ -1,0 +1,590 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BCEF33E1-D790-48E4-AE34-257F5F0149A5}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Qi</RootNamespace>
+    <AssemblyName>Qi</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Qi.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CefSharp">
+      <HintPath>..\packages\CefSharp.WinForms.1.25.3\lib\net40\CefSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="CefSharp.WinForms">
+      <HintPath>..\packages\CefSharp.WinForms.1.25.3\lib\net40\CefSharp.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreAudioApi">
+      <HintPath>..\..\CoreAudioApi\CoreAudioApi\bin\Debug\CoreAudioApi.dll</HintPath>
+    </Reference>
+    <Reference Include="dotless.Core">
+      <HintPath>..\..\Downloads\dotless-v1.3.1.0\dotless.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Parse">
+      <HintPath>..\packages\Parse.1.2.14\lib\net45\Parse.dll</HintPath>
+    </Reference>
+    <Reference Include="Parse.NetFx45">
+      <HintPath>..\packages\Parse.1.2.14\lib\net45\Parse.NetFx45.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BackButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BackButton.Designer.cs">
+      <DependentUpon>BackButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Button.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Button.Designer.cs">
+      <DependentUpon>Button.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfirmPasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfirmPasswordForm.Designer.cs" />
+    <Compile Include="EnterTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ErrorReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ErrorReportForm.Designer.cs" />
+    <Compile Include="FacebookLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FacebookLogin.Designer.cs">
+      <DependentUpon>FacebookLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FBLogin.xaml.cs">
+      <DependentUpon>FBLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ForwardButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ForwardButton.Designer.cs">
+      <DependentUpon>ForwardButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HTMLForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HTMLForm.Designer.cs" />
+    <Compile Include="InfoBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InfoBar.Designer.cs">
+      <DependentUpon>InfoBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs" />
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs" />
+    <Compile Include="Mashcast.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SearchBox.Designer.cs">
+      <DependentUpon>SearchBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TreeItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TreeItem.Designer.cs">
+      <DependentUpon>TreeItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TreeView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TreeView.Designer.cs">
+      <DependentUpon>TreeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View.Designer.cs">
+      <DependentUpon>View.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewStack.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ViewStack.Designer.cs">
+      <DependentUpon>ViewStack.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AppView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\AppView.Designer.cs">
+      <DependentUpon>AppView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AppWebView.cs" />
+    <Compile Include="Views\AppyView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\AppyView.Designer.cs">
+      <DependentUpon>AppyView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ArtistView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ArtistView.Designer.cs">
+      <DependentUpon>ArtistView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomeView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\HomeView.Designer.cs">
+      <DependentUpon>HomeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MashcastView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\MashcastView.Designer.cs">
+      <DependentUpon>MashcastView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PlaylistView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\PlaylistView.Designer.cs">
+      <DependentUpon>PlaylistView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PreferencesView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\PreferencesView.Designer.cs">
+      <DependentUpon>PreferencesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QiView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\QiView.Designer.cs">
+      <DependentUpon>QiView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SearchView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\SearchView.Designer.cs">
+      <DependentUpon>SearchView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ThemeCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ThemeCollectionView.Designer.cs">
+      <DependentUpon>ThemeCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ThemeView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ThemeView.Designer.cs">
+      <DependentUpon>ThemeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserView.Designer.cs">
+      <DependentUpon>UserView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="BackButton.resx">
+      <DependentUpon>BackButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Button.resx">
+      <DependentUpon>Button.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfirmPasswordForm.resx" />
+    <EmbeddedResource Include="ErrorReportForm.resx" />
+    <EmbeddedResource Include="FacebookLogin.resx">
+      <DependentUpon>FacebookLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ForwardButton.resx">
+      <DependentUpon>ForwardButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HTMLForm.resx" />
+    <EmbeddedResource Include="InfoBar.resx">
+      <DependentUpon>InfoBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx" />
+    <EmbeddedResource Include="LoginForm.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SearchBox.resx">
+      <DependentUpon>SearchBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TreeItem.resx">
+      <DependentUpon>TreeItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TreeView.resx">
+      <DependentUpon>TreeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View.resx">
+      <DependentUpon>View.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewStack.resx">
+      <DependentUpon>ViewStack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AppView.resx">
+      <DependentUpon>AppView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AppyView.resx">
+      <DependentUpon>AppyView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ArtistView.resx">
+      <DependentUpon>ArtistView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\HomeView.resx">
+      <DependentUpon>HomeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MashcastView.resx">
+      <DependentUpon>MashcastView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PlaylistView.resx">
+      <DependentUpon>PlaylistView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PreferencesView.resx">
+      <DependentUpon>PreferencesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\QiView.resx">
+      <DependentUpon>QiView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SearchView.resx">
+      <DependentUpon>SearchView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ThemeCollectionView.resx">
+      <DependentUpon>ThemeCollectionView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ThemeView.resx">
+      <DependentUpon>ThemeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserView.resx">
+      <DependentUpon>UserView.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="bin\Debug\locales\am.pak" />
+    <None Include="bin\Debug\locales\ar.pak" />
+    <None Include="bin\Debug\locales\bg.pak" />
+    <None Include="bin\Debug\locales\bn.pak" />
+    <None Include="bin\Debug\locales\ca.pak" />
+    <None Include="bin\Debug\locales\cs.pak" />
+    <None Include="bin\Debug\locales\da.pak" />
+    <None Include="bin\Debug\locales\de.pak" />
+    <None Include="bin\Debug\locales\el.pak" />
+    <None Include="bin\Debug\locales\en-GB.pak" />
+    <None Include="bin\Debug\locales\en-US.pak" />
+    <None Include="bin\Debug\locales\es-419.pak" />
+    <None Include="bin\Debug\locales\es.pak" />
+    <None Include="bin\Debug\locales\et.pak" />
+    <None Include="bin\Debug\locales\fa.pak" />
+    <None Include="bin\Debug\locales\fi.pak" />
+    <None Include="bin\Debug\locales\fil.pak" />
+    <None Include="bin\Debug\locales\fr.pak" />
+    <None Include="bin\Debug\locales\gu.pak" />
+    <None Include="bin\Debug\locales\he.pak" />
+    <None Include="bin\Debug\locales\hi.pak" />
+    <None Include="bin\Debug\locales\hr.pak" />
+    <None Include="bin\Debug\locales\hu.pak" />
+    <None Include="bin\Debug\locales\id.pak" />
+    <None Include="bin\Debug\locales\it.pak" />
+    <None Include="bin\Debug\locales\ja.pak" />
+    <None Include="bin\Debug\locales\kn.pak" />
+    <None Include="bin\Debug\locales\ko.pak" />
+    <None Include="bin\Debug\locales\lt.pak" />
+    <None Include="bin\Debug\locales\lv.pak" />
+    <None Include="bin\Debug\locales\ml.pak" />
+    <None Include="bin\Debug\locales\mr.pak" />
+    <None Include="bin\Debug\locales\ms.pak" />
+    <None Include="bin\Debug\locales\nb.pak" />
+    <None Include="bin\Debug\locales\nl.pak" />
+    <None Include="bin\Debug\locales\pl.pak" />
+    <None Include="bin\Debug\locales\pt-BR.pak" />
+    <None Include="bin\Debug\locales\pt-PT.pak" />
+    <None Include="bin\Debug\locales\ro.pak" />
+    <None Include="bin\Debug\locales\ru.pak" />
+    <None Include="bin\Debug\locales\sk.pak" />
+    <None Include="bin\Debug\locales\sl.pak" />
+    <None Include="bin\Debug\locales\sr.pak" />
+    <None Include="bin\Debug\locales\sv.pak" />
+    <None Include="bin\Debug\locales\sw.pak" />
+    <None Include="bin\Debug\locales\ta.pak" />
+    <None Include="bin\Debug\locales\te.pak" />
+    <None Include="bin\Debug\locales\th.pak" />
+    <None Include="bin\Debug\locales\tr.pak" />
+    <None Include="bin\Debug\locales\uk.pak" />
+    <None Include="bin\Debug\locales\vi.pak" />
+    <None Include="bin\Debug\locales\zh-CN.pak" />
+    <None Include="bin\Debug\locales\zh-TW.pak" />
+    <None Include="bin\Debug\Qi.exe.config" />
+    <None Include="bin\Debug\resources\apps\resources\fonts\fontawesome-webfont.eot" />
+    <None Include="bin\Debug\resources\apps\resources\fonts\fontawesome-webfont.ttf" />
+    <None Include="bin\Debug\resources\apps\resources\fonts\fontawesome-webfont.woff" />
+    <None Include="bin\Debug\resources\apps\resources\fonts\FontAwesome.otf" />
+    <None Include="bin\Debug\resources\apps\resources\less\bordered-pulled.less" />
+    <None Include="bin\Debug\resources\apps\resources\less\core.less" />
+    <None Include="bin\Debug\resources\apps\resources\less\fixed-width.less" />
+    <None Include="bin\Debug\resources\apps\resources\less\font-awesome.less" />
+    <None Include="bin\Debug\resources\apps\resources\less\icons.less" />
+    <None Include="bin\Debug\resources\apps\resources\less\larger.less" />
+    <None Include="bin\Debug\resources\apps\resources\less\list.less" />
+    <None Include="bin\Debug\resources\apps\resources\less\mixins.less" />
+    <None Include="bin\Debug\resources\apps\resources\less\path.less" />
+    <None Include="bin\Debug\resources\apps\resources\less\rotated-flipped.less" />
+    <None Include="bin\Debug\resources\apps\resources\less\spinning.less" />
+    <None Include="bin\Debug\resources\apps\resources\less\stacked.less" />
+    <None Include="bin\Debug\resources\apps\resources\less\variables.less" />
+    <None Include="bin\Debug\resources\apps\resources\scss\font-awesome.scss" />
+    <None Include="bin\Debug\resources\apps\resources\scss\_bordered-pulled.scss" />
+    <None Include="bin\Debug\resources\apps\resources\scss\_core.scss" />
+    <None Include="bin\Debug\resources\apps\resources\scss\_fixed-width.scss" />
+    <None Include="bin\Debug\resources\apps\resources\scss\_icons.scss" />
+    <None Include="bin\Debug\resources\apps\resources\scss\_larger.scss" />
+    <None Include="bin\Debug\resources\apps\resources\scss\_list.scss" />
+    <None Include="bin\Debug\resources\apps\resources\scss\_mixins.scss" />
+    <None Include="bin\Debug\resources\apps\resources\scss\_path.scss" />
+    <None Include="bin\Debug\resources\apps\resources\scss\_rotated-flipped.scss" />
+    <None Include="bin\Debug\resources\apps\resources\scss\_spinning.scss" />
+    <None Include="bin\Debug\resources\apps\resources\scss\_stacked.scss" />
+    <None Include="bin\Debug\resources\apps\resources\scss\_variables.scss" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\searchbar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\forward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\forward_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\forward_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\topicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\Qi.exe" />
+    <Content Include="bin\Debug\Qi.pdb" />
+    <Content Include="bin\Debug\resources\apps\about\index.html" />
+    <Content Include="bin\Debug\resources\apps\ad\index.html" />
+    <Content Include="bin\Debug\resources\apps\artist\index.html" />
+    <Content Include="bin\Debug\resources\apps\artist\js\main.js" />
+    <Content Include="bin\Debug\resources\apps\category\index.html" />
+    <Content Include="bin\Debug\resources\apps\category\scripts\main.js" />
+    <Content Include="bin\Debug\resources\apps\channel\index.html" />
+    <Content Include="bin\Debug\resources\apps\channel\js\main.js" />
+    <Content Include="bin\Debug\resources\apps\debug\index.html" />
+    <Content Include="bin\Debug\resources\apps\debug\scripts\main.js" />
+    <Content Include="bin\Debug\resources\apps\finder\css\finder.css" />
+    <Content Include="bin\Debug\resources\apps\finder\index.html" />
+    <Content Include="bin\Debug\resources\apps\group\index.html" />
+    <Content Include="bin\Debug\resources\apps\home\index.html" />
+    <Content Include="bin\Debug\resources\apps\home\js\main.js" />
+    <Content Include="bin\Debug\resources\apps\job\index.html" />
+    <Content Include="bin\Debug\resources\apps\notfound\css\style.css" />
+    <Content Include="bin\Debug\resources\apps\notfound\index.html" />
+    <Content Include="bin\Debug\resources\apps\player\css\style.css" />
+    <Content Include="bin\Debug\resources\apps\player\index.html" />
+    <Content Include="bin\Debug\resources\apps\player\js\main.js" />
+    <Content Include="bin\Debug\resources\apps\playlist\index.html" />
+    <Content Include="bin\Debug\resources\apps\playlist\js\main.js" />
+    <Content Include="bin\Debug\resources\apps\qi\index.html" />
+    <Content Include="bin\Debug\resources\apps\resources\css\bootstrap-theme.css" />
+    <Content Include="bin\Debug\resources\apps\resources\css\bootstrap-theme.min.css" />
+    <Content Include="bin\Debug\resources\apps\resources\css\bootstrap.css" />
+    <Content Include="bin\Debug\resources\apps\resources\css\bootstrap.min.css" />
+    <Content Include="bin\Debug\resources\apps\resources\css\debug.css" />
+    <Content Include="bin\Debug\resources\apps\resources\css\font-awesome.css" />
+    <Content Include="bin\Debug\resources\apps\resources\css\font-awesome.min.css" />
+    <Content Include="bin\Debug\resources\apps\resources\css\spoyler.css" />
+    <Content Include="bin\Debug\resources\apps\resources\fonts\fontawesome-webfont.svg" />
+    <Content Include="bin\Debug\resources\apps\resources\img\banner.jpg" />
+    <Content Include="bin\Debug\resources\apps\resources\img\banner.png" />
+    <Content Include="bin\Debug\resources\apps\resources\img\header.png" />
+    <Content Include="bin\Debug\resources\apps\resources\js\bootstrap.js" />
+    <Content Include="bin\Debug\resources\apps\resources\js\bootstrap.min.js" />
+    <Content Include="bin\Debug\resources\apps\resources\js\mashcast.js" />
+    <Content Include="bin\Debug\resources\apps\resources\js\observable.js" />
+    <Content Include="bin\Debug\resources\apps\resources\js\promise.js" />
+    <Content Include="bin\Debug\resources\apps\resources\js\resolvers\mashcastfm.js" />
+    <Content Include="bin\Debug\resources\apps\resources\js\search\index.html" />
+    <Content Include="bin\Debug\resources\apps\resources\js\search\js\main.js" />
+    <Content Include="bin\Debug\resources\apps\resources\js\vendor\entity.js" />
+    <Content Include="bin\Debug\resources\apps\resources\js\vendor\jquery-1.11.0.min.js" />
+    <Content Include="bin\Debug\resources\apps\resources\js\vendor\slab.js" />
+    <Content Include="bin\Debug\resources\apps\resources\js\views.js" />
+    <Content Include="bin\Debug\resources\apps\sport\index.html" />
+    <Content Include="bin\Debug\resources\apps\user\index.html" />
+    <Content Include="bin\Debug\resources\apps\user\js\main.js" />
+    <Content Include="bin\Debug\resources\apps\utils\css\console.css" />
+    <Content Include="bin\Debug\resources\apps\utils\scripts\console.js" />
+    <Content Include="bin\Debug\Styles.xml" />
+    <Content Include="bin\Debug\themes\spotify.xml" />
+    <None Include="Resources\Vald-logga-artistconnector3.png" />
+    <None Include="Resources\signinwithfacebook.png" />
+    <None Include="Resources\MashcastLogo2.png" />
+    <None Include="Resources\MashcastLogo1.png" />
+    <None Include="Resources\MashcastLogo.png" />
+    <None Include="Resources\3.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="FBLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\resources\apps\entity\js\" />
+    <Folder Include="bin\Debug\resources\apps\qi\js\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

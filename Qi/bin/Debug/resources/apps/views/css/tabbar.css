@@ -1,0 +1,33 @@
+
+.sp-tabbar {
+    background-color: rgba(0, 0, 0, .5);
+    height: 28px;
+    display: block;
+    width: 100%;
+
+    font-size: 15pt;
+}
+.sp-tab {
+    float: left;
+    display: block;
+    height: 28px;
+    cursor: pointer;
+    width: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    
+}
+
+.sp-tab {
+    color: darken(@fore-color, 5.1);
+    font-weight: thin;
+}
+.sp-tab:hover {
+    text-decoration: none;
+   
+    color: lighten(@fore-color, 5.1);
+    
+}
+.sp-tab-active {
+    border-bottom: 3px solid @primary-color;
+}

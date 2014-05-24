@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<styles>
+  <style id="eve" backgroundColor="#efefef" foregroundcolor="#323232" primarycolor="#0094FF" />
+  <style id="adam" backgroundColor="#363636" foregroundcolor="#efefef" primarycolor="#0094FF" />
+</styles>

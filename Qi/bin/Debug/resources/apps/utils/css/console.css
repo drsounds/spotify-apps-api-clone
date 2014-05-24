@@ -1,0 +1,9 @@
+.console {
+    background-color: black;
+    color: #AAFFAA;
+    font-family: "Courier New";
+    white-space: pre-wrap;
+    min-height:320px;
+    overflow: scroll;
+    font-size: 12px;
+}

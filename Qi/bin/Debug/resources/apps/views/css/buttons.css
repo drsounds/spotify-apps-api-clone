@@ -1,0 +1,32 @@
+.btn {
+    padding-top: 10px;
+    font-size: 12px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 51px;
+}
+.btn-primary {
+    background-color: @primary-color;
+    color: @back-color;
+}
+
+.btn {
+    /*background-color: rgba(0, 0, 0, .35);*/
+   border: 2px solid darken(@fore-color, 0.5);
+   background-color: transparent;
+}
+
+.btn-primary:hover {
+
+    color: @back-color;
+}
+.btn:active {
+    border-color: @fore-color;
+    background: transparent;
+}
+.btn-primary:active {
+    color: @fore-color;
+    border-color: darken(@primary-color, 1.5);
+    background-color: darken(@primary-color, 1.5);
+}
