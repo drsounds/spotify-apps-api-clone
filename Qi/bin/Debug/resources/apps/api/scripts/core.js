@@ -1,8 +1,10 @@
 var __application = null;
 var __ui = null;
+
 require(['$api/models#Application'], function (Application) {
-    var linkStyle = document.createElement('link'); linkStyle.setAttribute('href', '$views/css/adam.css'); linkStyle.setAttribute('rel', 'stylesheet'); linkStyle.setAttribute('type', 'text/css'); document.head.appendChild(linkStyle);
     console.log(__application);
+    var linkStyle = document.createElement('link'); linkStyle.setAttribute('href', '$views/css/adam.css'); linkStyle.setAttribute('rel', 'stylesheet'); linkStyle.setAttribute('type', 'text/css'); document.head.appendChild(linkStyle);
+    
     __application = new Application([], null, null, null, null); 
     window.addEventListener('message', function (event) {
         var data = event.data;

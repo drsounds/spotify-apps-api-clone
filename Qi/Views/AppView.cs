@@ -258,6 +258,8 @@ namespace Qi.Views
                 }
 
             }
+            if (webView == null)
+                return;
             WebViewArgs args = (WebViewArgs)webView.Tag;
             webView.RegisterJsObject("appName", args.app);
             webView.ExecuteScript("window.appName = '" + args.app + "'; setTimeout( function () {  console.log('Applying general style'); var linkStyle = document.createElement('link'); linkStyle.setAttribute('href', '$views/css/adam.css'); linkStyle.setAttribute('rel', 'stylesheet'); linkStyle.setAttribute('type', 'text/css'); document.head.appendChild(linkStyle); window.arguments = [" + args.args + "]; if (window.tabBar) window.tabBar.onargumentschanged([ " + args.args + "]);  window.postMessage({'type': 'argumentschanged', 'arguments':[" + args.args + "]}, '*'); }, 100);");

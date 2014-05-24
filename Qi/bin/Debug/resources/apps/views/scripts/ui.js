@@ -17,6 +17,13 @@ require(['$views/tabbar#TabBar', '$views/views#View'], function (TabBar, View) {
        this.activeView = 'overview';
        this.options = opt_options;
         this.tabBar.addToDom(document.body, 'prepend');
+        if (opt_options.header) {
+            var header = document.createElement('div');
+            header.classList.add('sp-header');
+            header.classList.add('container');
+            this.header = header;
+            document.body.insertBefore(this.header, document.body.childNodes[0]);
+        }
        __ui = this;
    };
    

@@ -11,6 +11,7 @@ body {
 }
 h1 {
     color: @fore-color;
+    font-weight: thin;
 }
 h2.divider {
 	font-size: 15pt;
@@ -132,23 +133,8 @@ a.btn-primary {
     height: 250px;
     padding: 20px;
 }
-.sp-tabbar {
-	background-color: rgba(0, 0, 0, .5);
-	height: 28px;
-	display: block;
-	width: 100%;
-
-	font-size: 15pt;
-}
-.sp-tabbar > .sp-tab {
-	border-bottom: 1px solid @fore-color;
-	float: left;
-	display: block;
-	height: 28px;
-	width: auto;
-}
-.sp-tab-active {
-	border-bottom: 3px solid @primary-color;
+.sp-header {
+    min-height: 100px;
 }
 section {
 	display: none;

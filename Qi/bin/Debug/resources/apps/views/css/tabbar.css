@@ -1,10 +1,9 @@
 
 .sp-tabbar {
-    background-color: rgba(0, 0, 0, .5);
     height: 28px;
     display: block;
     width: 100%;
-
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
     font-size: 15pt;
 }
 .sp-tab {
@@ -19,15 +18,22 @@
 }
 
 .sp-tab {
-    color: darken(@fore-color, 5.1);
+    text-transform: uppercase;
+    color: lighten(@fore-color, 1);
+    opacity: 0.5;
     font-weight: thin;
+    font-size: 15px;
 }
 .sp-tab:hover {
     text-decoration: none;
    
-    color: lighten(@fore-color, 5.1);
+    opacity: 1;
+    color: lighten(@fore-color, 1);
     
 }
 .sp-tab-active {
-    border-bottom: 3px solid @primary-color;
+    opacity: 1;
+    border-bottom: 2px solid @primary-color;
+    color: lighten(@fore-color, 3);
+    font-weight: bold;
 }
