@@ -13,6 +13,9 @@ h1 {
     color: @fore-color;
     font-weight: thin;
 }
+.sp-image {
+    background-color: white;
+}
 h2.divider {
 	font-size: 15pt;
 	width: 100%;
@@ -153,4 +156,50 @@ p {
 .btn {
     
    color: @fore-color;
+}
+
+
+
+.sp-tracklist {
+    height: 28px;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, .05);
+    font-size: 15pt;
+}
+.sp-tracklist th {
+    border-right: 1px solid rgba(255, 255, 255, .05);
+    
+    border-bottom: 1px solid rgba(255, 255, 255, .05);
+    height: 28px;
+    cursor: pointer;
+    padding-left: 15px;
+    opacity: 0.5;
+    font-size: 13px;
+    padding-right: 15px;
+    text-transform: uppercase;
+    
+}
+
+.sp-tracklist tr td {
+    color: lighten(@fore-color, 1);
+    border-bottom: 1px solid rgba(255, 255, 255, .05);
+    opacity: 1;
+    
+    font-weight: thin;
+    font-size: 20px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+.sp-tab:hover {
+    text-decoration: none;
+   
+    opacity: 1;
+    color: lighten(@fore-color, 1);
+    
+}
+.sp-tab-active {
+    opacity: 1;
+    border-bottom: 2px solid @primary-color;
+    color: lighten(@fore-color, 3);
+    font-weight: bold;
 }

@@ -12,23 +12,26 @@ require(['$api/models#Application'], function (Application) {
         if (data.type == 'argumentschanged') {
             if ('arguments' in data) {
                 console.log(__application);
-                __application.dispatchEvent('argumentschanged', data.arguments);
+                console.log("DATA", data);
+                __application.dispatchEvent('arguments', data.arguments);
                 console.log(__ui);
                 var id = data.arguments.length > 0 ? data.arguments[data.arguments.length - 1] : null;
-                __ui.tabBar.onargumentschanged(data.arguments);
-                __ui.setActiveView(id);
-                if (__ui != null) {
-                      var views = __ui.views;
-                        for (var i = 0; i < __ui.options.views.length; i++) {
-                            var view = __ui.options.views[i];
-                            if (view.id == id) {
-                                console.log("Element", view.element);
-                                view.element.style.display = 'block';
-                            } else {
-                                view.element.style.display = 'none';
-                            }
+               if (__ui != null) {
+                    __ui.tabBar.onargumentschanged(data.arguments);
+                    __ui.setActiveView(id);
+                    
+                  var views = __ui.views;
+                    for (var i = 0; i < __ui.options.views.length; i++) {
+                        var view = __ui.options.views[i];
+                        if (view.id == id) {
+                            console.log("Element", view.element);
+                            view.element.style.display = 'block';
+                        } else {
+                            view.element.style.display = 'none';
                         }
-                }
+                    }
+            }
+                   
             }
         }
     }, '*');

@@ -10,7 +10,6 @@ require([
   languageExample.doHelloWorld();
   coverExample.doCoverForAlbum();
   buttonExample.doShareButtonForArtist();
-  buttonExample.doPlayButtonForAlbum();
   playlistExample.doPlaylistForAlbum();
 
 });

@@ -11,12 +11,17 @@ require(['$views/views#View'], function (View) {
     exports.BaseButton = BaseButton;
     
     var PlayButton = function (resource, options) {
-        this.node = document.createElement('iframe');
+        /*this.node = document.createElement('iframe');
         this.node.src = 'https://embed.spotify.com/?uri=' + resource.uri;
         this.node.width = 128;
         this.node.height= 128;
         this.node.setAttribute('frameborder', '0');
-        this.node.setAttribute('allowtransparency', 'true');
+        this.node.setAttribute('allowtransparency', 'true');*/
+       this.node = document.createElement('div');
+       this.node.classList.add('sp-image');
+       this.node.classList.add('sp-play-button');
+       this.node.style.width = 128;
+       this.node.style.height = 128;
     };
     PlayButton.forArtist = function (item, options) {
         return new PlayButton(item, options);
