@@ -4,19 +4,27 @@ require(['$views/views#View'], function (View) {
         this.item = item;
         this.node = document.createElement('div');
         this.node.classList.add('sp-image');
-        if (typeof(options) != null) {
-            if (typeof(options.width) != null) {
+        if (typeof(options) !== 'undefined') {
+            if ('width' in options) {
                 this.node.style.width = options.width + 'px';
                 this.node.style.height = options.height + 'px';
                 
             }
         }
+        var self = this;
         if (typeof(item) == 'String') {
             this.node.style.backgroundImage = 'url("' + item + '")';
         }
+        item.load('image').done(function (item) {
+            console.log(item);
+            self.node.style.backgroundImage = 'url("' + item.images['640'] + '")';
+        })
     };
     
+    
+    
     Image.forAlbum = function (album, options) {
+       
         return new Image(album, options);
     }
     

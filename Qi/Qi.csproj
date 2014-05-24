@@ -217,6 +217,12 @@
     <Compile Include="Views\MashcastView.Designer.cs">
       <DependentUpon>MashcastView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\AlbumView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\AlbumView.Designer.cs">
+      <DependentUpon>AlbumView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\PlaylistView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -321,6 +327,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MashcastView.resx">
       <DependentUpon>MashcastView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AlbumView.resx">
+      <DependentUpon>AlbumView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PlaylistView.resx">
       <DependentUpon>PlaylistView.cs</DependentUpon>

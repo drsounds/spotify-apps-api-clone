@@ -30,7 +30,8 @@ require([], function () {
   
   var BridgeLoadable = function (uri) {
       this.backend = 'https://api.spotify.com/v1';
-      if (typeof(uri) === 'undefined') {
+      this.images = {};
+  if (typeof(uri) === 'undefined') {
           return;
       }
       this.uri = uri;
@@ -44,40 +45,54 @@ require([], function () {
    */
   BridgeLoadable.prototype.load = function (properties) {
       var self = this;
+      this.images = {};
       var promise = new Promise();
       if ('uri' in this) {
-          var xmlHttp = new XMLHttpRequest();
-          xmlHttp.onreadystatechange = function () {
-              if (xmlHttp.readyState == 4) {
-                  if (xmlHttp.status == 200) {
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.onreadystatechange = function () {
+          if (xmlHttp.readyState == 4) {
+              if (xmlHttp.status == 200) {
+                  
+                  //var obj = JSON.parse(xmlHttp.responseText);
+                  //promise.setDone(obj);
+                  var data = JSON.parse(xmlHttp.responseText);
+                  if (self.uri.split(':')[1] == 'track' || self.uri.split(':')[1] == 'album'  || self.uri.split(':')[1] == 'artist') {
+                      if (self.uri.split(':')[1] == 'track')
                       
-                      //var obj = JSON.parse(xmlHttp.responseText);
-                      //promise.setDone(obj);
-                      var data = JSON.parse(xmlHttp.responseText);
-                      if (self.uri.split(':')[1] == 'track' || self.uri.split(':')[1] == 'album'  || self.uri.split(':')[1] == 'artist') {
-                          if (self.uri.split(':')[1] == 'track')
-                          
-                              self.resolve('album', Album.fromURI(data.album.uri), true);
+                          self.resolve('album', Album.fromURI(data.album.uri), true);
+                      self.resolve('uri', self.uri);
+                      if (self.uri.split(':')[1] == 'track' || self.uri.split(':')[1] == 'album' ) {
                           self.resolve('artists', Artist.fromURIs(data.artists.map(function (a) { return a.uri;})), true);
-                          self.resolve('name', data.name, true);
-                          self.resolve('popularity', data.popularity, true);
-                          self.resolve('type', self.uri[1]);
-                          self.resolve('explicit', data.explicit);
-                          promise.setDone(self);
-                      } else {
-                          promise.setFail();
                       }
+                      console.log(self.uri);
+                      if (self.uri.split(':')[1] == 'album') {
+                          var images = data.images;
+                          console.log("Images", data.images);
+                          for (var i = 0; i < images.length; i++) {
+                              var image = images[i];
+                              console.log("Images", self);
+                              self.images[image.height] = image.url;
+                          }
+                      }
+                      self.resolve('name', data.name, true);
+                      self.resolve('popularity', data.popularity, true);
+                      self.resolve('type', self.uri[1]);
+                      self.resolve('explicit', data.explicit);
+                      promise.setDone(self);
                   } else {
                       promise.setFail();
                   }
+              } else {
+                  promise.setFail();
               }
           }
-            
-          
-          var url = this.backend + '/' + ((this.uri.split(':').length > 3 && this.uri.split(':')[3]) == 'playlist' ? this.uri.split(':')[3] + 's/' + this.uri.split(':')[4] : this.uri.split(':')[1] + 's/' + this.uri.split(':')[2]);
-          console.log("URL", this.uri);
-          console.log(url);
-          xmlHttp.open('GET', url, true);
+      }
+        
+      
+      var url = this.backend + '/' + ((this.uri.split(':').length > 3 && this.uri.split(':')[3]) == 'playlist' ? this.uri.split(':')[3] + 's/' + this.uri.split(':')[4] : this.uri.split(':')[1] + 's/' + this.uri.split(':')[2]);
+      console.log("URL", this.uri);
+      console.log(url);
+      xmlHttp.open('GET', url, true);
           console.log(url);
           xmlHttp.send(null);
       } else {
@@ -109,40 +124,48 @@ require([], function () {
       var promise = new Promise();
      
       if ('uri' in this) {
-          if (this.uri.indexOf('spotify:trackset:') == 0) {
-              return;
-          }
-          var xmlHttp = new XMLHttpRequest();
-          xmlHttp.onreadystatechange = function () {
-              if (xmlHttp.readyState == 4) {
-                  if (xmlHttp.status == 200) {
+      if (this.uri.indexOf('spotify:trackset:') == 0) {
+          return;
+      }
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.onreadystatechange = function () {
+          if (xmlHttp.readyState == 4) {
+              if (xmlHttp.status == 200) {
+                  
+                  //var obj = JSON.parse(xmlHttp.responseText);
+                  //promise.setDone(obj);
+                  
+                // console.log(xmlHttp.responseText);
+                  var data = JSON.parse(xmlHttp.responseText);
+                 
+                      console.log("SELF", self);
+                  if (self.uri.split(':')[1] == 'playlist' || self.uri.split(':')[1] == 'album') {
+                      var items = 0;
                       
-                      //var obj = JSON.parse(xmlHttp.responseText);
-                      //promise.setDone(obj);
-                      
-                    // console.log(xmlHttp.responseText);
-                      var data = JSON.parse(xmlHttp.responseText);
-                     
-                          console.log("SELF", self);
-                      if (self.uri.split(':')[1] == 'playlist' || self.uri.split(':')[1] == 'album') {
-                          var items = 0;
-                          
-                          var tracks = data.tracks.items;
-                          for (var i = 0; i < tracks.length; i++) {
-                              var track = Track.fromURI(tracks[i].uri);
-                              self.objects.push(track);
-                          }
-                          promise.setDone(self);
+                      var tracks = data.tracks.items;
+                      for (var i = 0; i < tracks.length; i++) {
+                          var track = Track.fromURI(tracks[i].uri);
+                          self.objects.push(track);
                       }
-                      promise.setFail();
-                  } else {
-                      promise.setFail();
-                  }              
-              }
+                      promise.setDone(self);
+                  }
+                  if (self.uri.split(':')[1] == 'album') {
+                      var images = data.images;
+                      console.log("Images", data.images);
+                      for (var i = 0; i < images.length; i++) {
+                          var image = images[i];
+                          self.images[image.height] = image.url;
+                      }
+                  }
+                  promise.setFail();
+              } else {
+                  promise.setFail();
+              }              
           }
-          var url = this.backend + '/' + ((this.uri.split(':').length > 3 && this.uri.split(':')[3]) == 'playlist' ? this.uri.split(':')[3] + 's/' + this.uri.split(':')[4] : this.uri.split(':')[1] + 's/' + this.uri.split(':')[2]);
-          console.log(url);
-          xmlHttp.open('GET', url, true);
+      }
+      var url = this.backend + '/' + ((this.uri.split(':').length > 3 && this.uri.split(':')[3]) == 'playlist' ? this.uri.split(':')[3] + 's/' + this.uri.split(':')[4] : this.uri.split(':')[1] + 's/' + this.uri.split(':')[2]);
+      console.log(url);
+      xmlHttp.open('GET', url, true);
           xmlHttp.send(null);
       } else {
           setTimeout(function () {
@@ -179,11 +202,11 @@ require([], function () {
   };
   ListDescriptor.Types = {
       LIST: 'list',
-      LISTS: 'lists',
-      SORT: 'sort',
-      FILTER: 'filter',
-      RANGE: 'range',
-      SHUFFLE: 'shuffle'
+  LISTS: 'lists',
+  SORT: 'sort',
+  FILTER: 'filter',
+  RANGE: 'range',
+  SHUFFLE: 'shuffle'
   };
   ListDescriptor.compare = function (a, b) {
       return a.type == b.type;
@@ -220,19 +243,17 @@ require([], function () {
       var snapshot = new Snapshot(this, start, end, false);
       return snapshot;
   }
-  var Album = function (arguments) {
-      MdL.call(this, arguments);
+  var Album = function (uri) {
       console.log(Album);
-      var collection = new Collection(Album, arguments, Snapshot.prototype.load);
-      this.collection = collection;
+      var collection = new Collection(Album, uri, Snapshot.prototype.load);
+      this.tracks = collection;
+      this.uri = uri;
   }
   Album.fromURI = function (uri) {
       return new Album(uri);
   }
   Album.prototype = new MdL();
   Album.prototype.constructor = MdL;
-  Album.prototype.load = function (properties) {
-  };
   
   var Playlist = function (uri) {
       //alert(uri);
@@ -246,8 +267,8 @@ require([], function () {
   Playlist.prototype = new MdL();
   Playlist.prototype.constructor = MdL;
   
-  var Track = function (arguments) {
-      MdL.call(this, arguments);
+  var Track = function (uri) {
+    this.uri = uri;
   }
   Track.prototype = new MdL();
   Track.prototype.constructor = MdL;

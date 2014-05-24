@@ -23,18 +23,24 @@ require(['$views/views#View'], function(View) {
         this.node.setAttribute('frameborder', '0');
         this.node.setAttribute('allowtransparency', 'true');*/
        this.node.classList.add('sp-tracklist');
-       this.node.innerHTML = '<thead><th></th><th>Track</th><th>Artist</th><th>Time</th><th>Album</th></thead>';
+       this.node.innerHTML = '<thead><th>#</th><th>Track</th><th>Artist</th><th>Time</th><th>Album</th><th>Popularity</th></thead>';
        var tbody = document.createElement('tbody');
        this.node.appendChild(tbody);
        console.log(this.resource.collection);
-       (this.resource['tracks'] || this.resource['objects']).snapshot(0, 100).load('tracks').done(function (resource) {
+       (this.resource['tracks'] || this.resource['objects'] || this.resource['collection']).snapshot(0, 100).load('tracks').done(function (resource) {
          resource.objects.forEach(function (track) {
             track.load('name', 'artists', 'album').done(function (track) {
-                console.log(track);
-                console.log("Track", track);
-                var tr = document.createElement('tr');
-                tr.innerHTML = '<td></td><td>' + track.name + '</td><td><a href="' + track.artists[0].uri + '">' + track.artists[0].name + '</a></td><td>0:00</td><td><a href="' + track.album.uri + '">' + track.album.name + '</a></td>';
-                tbody.appendChild(tr); 
+                track.artists[0].load('name').done(function (artist) {
+                    track.album.load('name').done(function (album) {
+                        console.log(track);
+                        console.log("Track", track);
+                        var tr = document.createElement('tr');
+                        tr.innerHTML = '<td></td><td>' + track.name + '</td><td><a href="' + track.artists[0].uri + '">' + track.artists[0].name + '</a></td><td>0:00</td><td><a href="' + track.album.uri + '">' + track.album.name + '</a></td><td></td>';
+                        console.log(tr.innerHTML);
+                        console.log(track);
+                        tbody.appendChild(tr); 
+                    });
+                });
             });
         });
         });

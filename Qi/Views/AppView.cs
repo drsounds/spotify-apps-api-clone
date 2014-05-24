@@ -55,7 +55,7 @@ namespace Qi.Views
 
             public bool OnBeforeBrowse(IWebBrowser browser, IRequest request, NavigationType naigationvType, bool isRedirect)
             {
-                if (request.Url.StartsWith("spoyler:") /*|| request.Url.StartsWith("spotify:")*/ || request.Url.StartsWith("mashcast:"))
+                if (request.Url.StartsWith("spoyler:") || request.Url.StartsWith("spotify:") || request.Url.StartsWith("mashcast:"))
                 {
                     host.MainForm.BeginInvoke(new Action(() => 
                         host.MainForm.Navigate(request.Url)

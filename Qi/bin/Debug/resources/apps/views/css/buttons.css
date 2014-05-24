@@ -5,6 +5,7 @@
     border-radius: 51px;
     box-sizing: border-box;
     float: left;
+    height: 32px;
 }
 .btn-primary {
     background-color: @primary-color;
@@ -18,6 +19,8 @@
    font-weight: bold;
    padding-left: 25px;
    padding-right: 25px;
+   padding-top: 4px;
+   text-transform: uppercase;
 }
 
 .btn-primary:hover {
@@ -32,18 +35,19 @@
 .btn:active {
     border-color: @primary-color;
 }
-.btn-primary:bover {
-    
-    border-color: darken(@primary-color, 2.0);
-}
-.btn-primary:active {
-    color: @back-color;
-    border-color: darken(@primary-color, 1.5);
-    background-color: darken(@primary-color, 3.5);
-}
+
 .btn-primary {
     border: 2px solid darken(@primary-color, 2.0);
     background-color: darken(@primary-color, 2.0);
     color: @back-color !important;
     
+}
+.btn-primary:bover {
+    
+    border: 1px solid darken(@primary-color, 2.0);
+}
+.btn-primary:active {
+    color: @back-color;
+    border-color: darken(@primary-color, 3.0);
+    background-color: darken(@primary-color, 3.);
 }

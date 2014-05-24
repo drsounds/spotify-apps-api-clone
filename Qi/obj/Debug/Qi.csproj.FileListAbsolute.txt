@@ -114,3 +114,4 @@ C:\Users\Alecca\Spotiapps\Qi\obj\Debug\Qi.Views.ThemeCollectionView.resources
 C:\Users\Alecca\Spotiapps\Qi\obj\Debug\Qi.Views.ThemeView.resources
 C:\Users\Alecca\Spotiapps\Qi\obj\Debug\Qi.Views.UserView.resources
 C:\Users\Alecca\Spotiapps\Qi\obj\Debug\Qi.csproj.GenerateResource.Cache
+C:\Users\Alecca\Spotiapps\Qi\obj\Debug\Qi.Views.AlbumView.resources

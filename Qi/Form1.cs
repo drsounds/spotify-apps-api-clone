@@ -93,6 +93,7 @@ namespace Qi
             this.treeView1.MainForm = this;
             this.treeView1.AddItem("App Finder", "mashcast:app:finder");
             this.treeView1.ItemSelected += treeView1_ItemSelected;
+            this.viewStack1.RegisterView(new Views.AlbumView(this));
             this.viewStack1.RegisterView(new Views.SearchView(this));
             this.viewStack1.RegisterView(new Views.ArtistView(this));
             this.viewStack1.RegisterView(new Views.HomeView(this));
