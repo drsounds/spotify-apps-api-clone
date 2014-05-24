@@ -19,11 +19,19 @@ require(['$views/tabbar#TabBar', '$views/views#View'], function (TabBar, View) {
         this.tabBar.addToDom(document.body, 'prepend');
        __ui = this;
    };
+   
    UI.prototype = new Observable();
    UI.prototype.constructor = Observable;
    UI.init = function (options) {
        return new UI(options);
        
    };
+   UI.prototype.setActiveView = function (id) {
+       var data = {
+           id: id,
+           previousId: this.activeView
+       };
+       this.dispatchEvent('viewchange', data);
+   }
    exports.UI = UI;
 });

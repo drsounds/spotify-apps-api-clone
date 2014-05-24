@@ -14,6 +14,7 @@ require(['$api/models#Application'], function (Application) {
                 console.log(__ui);
                 var id = data.arguments.length > 0 ? data.arguments[data.arguments.length - 1] : null;
                 __ui.tabBar.onargumentschanged(data.arguments);
+                __ui.setActiveView(id);
                 if (__ui != null) {
                       var views = __ui.views;
                         for (var i = 0; i < __ui.options.views.length; i++) {
