@@ -134,10 +134,10 @@ require([], function () {
                           }
                           promise.setDone(self);
                       }
-                    promise.setFail();
-                  }
-                  promise.setFail();
-                  
+                      promise.setFail();
+                  } else {
+                      promise.setFail();
+                  }              
               }
           }
           var url = this.backend + '/' + ((this.uri.split(':').length > 3 && this.uri.split(':')[3]) == 'playlist' ? this.uri.split(':')[3] + 's/' + this.uri.split(':')[4] : this.uri.split(':')[1] + 's/' + this.uri.split(':')[2]);
@@ -235,6 +235,7 @@ require([], function () {
   };
   
   var Playlist = function (uri) {
+      //alert(uri);
       this.uri = uri;
       var tracks = new Collection(Playlist, uri, Snapshot.prototype.load);
       this.tracks = tracks;
@@ -312,4 +313,27 @@ require([], function () {
   }
   exports.Track = Track;
   exports.ListDescriptor = ListDescriptor;
+  
+  var Context = function (uri) {
+      this.uri = uri;
+  }
+  Context.prototype = new Loadable();
+  Context.prototype.constructor = Loadable;
+  
+  var Player = function () {
+    this.contexts = [];
+    this.context = null;
+    this.index = 0;
+    this,playing = false;
+    this.position = 0;
+    this.repeat = false;
+    this.shuffle = false;
+    this.track = null;    
+  };
+  Player.prototype = new BridgeLoadable();
+  Player.prototype.constructor = BridgeLoadable;
+  
+  
+  
+  exports.Player = Player;
 })

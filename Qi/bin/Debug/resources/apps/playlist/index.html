@@ -14,17 +14,25 @@
     <!-- This is required for now -->
   </head>
   <body>
-    <table width="100%">
+    <table width="100%" height="256px">
         <tr>
-            <td width="128px">
-                <div id="image"></div>
+            <td valign="top" width="256px" id="image">
             </td>
-            <td width="100%">
-                <h1 id="name"></h1>
-                <p id="description"></p>
-                <div id="toolbar">
-                    
-                </div>
+            <td valign="top">
+                <table cellpadding="4" height="100%" width="100%">
+                    <tr>
+                        <td><h1 id="name"></h1></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" height="100%"><p id="description"></p></td>
+                    </tr>
+                    <tr>
+                        <td id="toolbar"></td>
+                    </tr>
+                </table>
+                
+                
+               
             </td>
         </tr>
     </table>

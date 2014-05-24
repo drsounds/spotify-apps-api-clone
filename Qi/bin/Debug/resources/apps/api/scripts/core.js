@@ -13,7 +13,7 @@ require(['$api/models#Application'], function (Application) {
             if ('arguments' in data) {
                 console.log(__application);
                 console.log("DATA", data);
-                __application.dispatchEvent('arguments', data.arguments);
+                __application.dispatchEvent('arguments', { 'arguments' : data.arguments});
                 console.log(__ui);
                 var id = data.arguments.length > 0 ? data.arguments[data.arguments.length - 1] : null;
                if (__ui != null) {

@@ -1,10 +1,10 @@
 .btn {
-    padding-top: 10px;
     font-size: 12px;
-    padding-bottom: 10px;
     padding-left: 20px;
     padding-right: 20px;
     border-radius: 51px;
+    box-sizing: border-box;
+    float: left;
 }
 .btn-primary {
     background-color: @primary-color;
@@ -13,20 +13,37 @@
 
 .btn {
     /*background-color: rgba(0, 0, 0, .35);*/
-   border: 2px solid darken(@fore-color, 0.5);
+   border: 2px solid rgba(255, 255, 255, .25);
    background-color: transparent;
+   font-weight: bold;
+   padding-left: 25px;
+   padding-right: 25px;
 }
 
 .btn-primary:hover {
 
     color: @back-color;
 }
-.btn:active {
+.btn:hover {
     border-color: @fore-color;
-    background: transparent;
+ 
+    
+}
+.btn:active {
+    border-color: @primary-color;
+}
+.btn-primary:bover {
+    
+    border-color: darken(@primary-color, 2.0);
 }
 .btn-primary:active {
-    color: @fore-color;
+    color: @back-color;
     border-color: darken(@primary-color, 1.5);
-    background-color: darken(@primary-color, 1.5);
+    background-color: darken(@primary-color, 3.5);
+}
+.btn-primary {
+    border: 2px solid darken(@primary-color, 2.0);
+    background-color: darken(@primary-color, 2.0);
+    color: @back-color !important;
+    
 }

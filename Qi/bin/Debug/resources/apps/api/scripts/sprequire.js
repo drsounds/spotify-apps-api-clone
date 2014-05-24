@@ -157,9 +157,14 @@ var sprequirejs = function (exports) {
             }
             for (i = 0, n = handlers.length; i < n; i++){
                 handler = handlers[i];
+                
                 //if (typeof(context)!=="undefined" && context !== handler.context) continue;
+              
                 if (handler.method.call(
-                    handler.scope, this, type, data
+                    handler.scope,  /*this, type,*/ { 
+                        data: data,
+                        type: type
+                    }
                 )===false) {
                     return false;
                 }

@@ -66,7 +66,6 @@
             // 
             this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.panel6);
-            this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.forwardButton1);
             this.panel1.Controls.Add(this.backButton1);
             this.panel1.Controls.Add(this.searchBox1);
@@ -74,7 +73,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(991, 78);
+            this.panel1.Size = new System.Drawing.Size(1029, 78);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
@@ -89,7 +88,7 @@
             // panel6
             // 
             this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel6.Location = new System.Drawing.Point(972, 1);
+            this.panel6.Location = new System.Drawing.Point(1010, 1);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(18, 19);
             this.panel6.TabIndex = 12;
@@ -98,9 +97,9 @@
             // panel4
             // 
             this.panel4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.panel4.Location = new System.Drawing.Point(367, 12);
+            this.panel4.Location = new System.Drawing.Point(278, 9);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(357, 60);
+            this.panel4.Size = new System.Drawing.Size(427, 33);
             this.panel4.TabIndex = 11;
             this.panel4.Visible = false;
             // 
@@ -148,11 +147,12 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.panel8);
+            this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 524);
+            this.panel2.Location = new System.Drawing.Point(0, 272);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(991, 48);
+            this.panel2.Size = new System.Drawing.Size(1029, 48);
             this.panel2.TabIndex = 1;
             // 
             // panel8
@@ -169,7 +169,7 @@
             // 
             this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.Cursor = System.Windows.Forms.Cursors.SizeNWSE;
-            this.panel5.Location = new System.Drawing.Point(970, 28);
+            this.panel5.Location = new System.Drawing.Point(1008, 28);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(21, 18);
             this.panel5.TabIndex = 0;
@@ -189,8 +189,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(991, 403);
-            this.splitContainer1.SplitterDistance = 187;
+            this.splitContainer1.Size = new System.Drawing.Size(1029, 151);
+            this.splitContainer1.SplitterDistance = 194;
             this.splitContainer1.SplitterWidth = 1;
             this.splitContainer1.TabIndex = 9;
             // 
@@ -199,16 +199,16 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(0, 0);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(187, 249);
+            this.treeView1.Size = new System.Drawing.Size(194, 0);
             this.treeView1.TabIndex = 13;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.axWindowsMediaPlayer1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 249);
+            this.panel3.Location = new System.Drawing.Point(0, -3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(187, 154);
+            this.panel3.Size = new System.Drawing.Size(194, 154);
             this.panel3.TabIndex = 12;
             // 
             // axWindowsMediaPlayer1
@@ -218,7 +218,7 @@
             this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(0, 0);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(187, 154);
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(194, 154);
             this.axWindowsMediaPlayer1.TabIndex = 0;
             // 
             // splitContainer2
@@ -231,7 +231,7 @@
             // 
             this.splitContainer2.Panel1.Controls.Add(this.viewStack1);
             this.splitContainer2.Panel2Collapsed = true;
-            this.splitContainer2.Size = new System.Drawing.Size(803, 403);
+            this.splitContainer2.Size = new System.Drawing.Size(834, 151);
             this.splitContainer2.SplitterDistance = 620;
             this.splitContainer2.TabIndex = 1;
             // 
@@ -240,7 +240,7 @@
             this.viewStack1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.viewStack1.Location = new System.Drawing.Point(0, 0);
             this.viewStack1.Name = "viewStack1";
-            this.viewStack1.Size = new System.Drawing.Size(803, 403);
+            this.viewStack1.Size = new System.Drawing.Size(834, 151);
             this.viewStack1.TabIndex = 1;
             // 
             // notifyIcon1
@@ -256,7 +256,7 @@
             this.infoBar1.ForeColor = System.Drawing.Color.Black;
             this.infoBar1.Location = new System.Drawing.Point(0, 78);
             this.infoBar1.Name = "infoBar1";
-            this.infoBar1.Size = new System.Drawing.Size(991, 43);
+            this.infoBar1.Size = new System.Drawing.Size(1029, 43);
             this.infoBar1.TabIndex = 8;
             this.infoBar1.Visible = false;
             // 
@@ -266,7 +266,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(991, 572);
+            this.ClientSize = new System.Drawing.Size(1029, 320);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.infoBar1);
             this.Controls.Add(this.panel2);
